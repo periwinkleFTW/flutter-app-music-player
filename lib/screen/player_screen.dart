@@ -63,7 +63,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PlayerListScreen(),
+                            builder: (context) => PlayerListScreen(
+                              selectedIndex: _currentItemPlaying,
+                            ),
                           ));
                     },
                   ),

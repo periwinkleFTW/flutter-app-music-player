@@ -7,13 +7,21 @@ import '../model/music_model.dart';
 import '../widget/neumorphism_button.dart';
 
 class PlayerListScreen extends StatefulWidget {
-  const PlayerListScreen({super.key});
+  const PlayerListScreen({super.key, required this.selectedIndex});
+  final int selectedIndex;
 
   @override
   State<PlayerListScreen> createState() => _PlayerListScreenState();
 }
 
 class _PlayerListScreenState extends State<PlayerListScreen> {
+  late int selectedIndex;
+  @override
+  void initState() {
+    selectedIndex = widget.selectedIndex;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -21,6 +29,9 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
       backgroundColor: AppColor.bgColor,
       body: SafeArea(
         child: Column(children: [
+          SizedBox(
+            height: 20,
+          ),
           Text("Flume Kai".toUpperCase(),
               style: const TextStyle(
                 color: AppColor.secondaryTextColor,
@@ -29,7 +40,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
               )),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            height: size.height * 0.3,
+            height: size.height * 0.45,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,7 +66,47 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
                 ),
               ],
             ),
-          )
+          ),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: musicList.length,
+                  itemBuilder: ((context, index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: AppColor.secondaryTextColor.withOpacity(0.3)),
+                      child: Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(musicList[0].name,
+                                  style: const TextStyle(
+                                    color: AppColor.primaryTextColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              Text(musicList[0].artist,
+                                  style: const TextStyle(
+                                    color: AppColor.primaryTextColor,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ],
+                          ),
+                          NeumorphismBtn(
+                            size: 50,
+                            child: Icon(
+                                color: AppColor.secondaryTextColor,
+                                Icons.play_arrow_rounded),
+                          ),
+                        ],
+                      ),
+                    );
+                  })))
         ]),
       ),
     );
