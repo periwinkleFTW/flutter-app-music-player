@@ -29,7 +29,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
       backgroundColor: AppColor.bgColor,
       body: SafeArea(
         child: Column(children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Text("Flume Kai".toUpperCase(),
@@ -45,6 +45,9 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 NeumorphismBtn(
+                  onPressed: () {
+                    Navigator.pop(context, selectedIndex);
+                  },
                   size: 60,
                   child: Icon(
                     Icons.arrow_back_rounded,
