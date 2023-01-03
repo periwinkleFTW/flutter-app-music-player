@@ -128,6 +128,26 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                 ],
               ),
+              Row(
+                children: [
+                  const NeumorphismBtn(
+                    size: 80,
+                    child: Icon(
+                      Icons.skip_previous_rounded,
+                      color: AppColor.secondaryTextColor,
+                      size: 35,
+                    ),
+                  ),
+                  const NeumorphismBtn(
+                    size: 80,
+                    child: Icon(
+                      Icons.skip_next_rounded,
+                      color: AppColor.secondaryTextColor,
+                      size: 35,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
