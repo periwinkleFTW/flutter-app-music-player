@@ -129,6 +129,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const NeumorphismBtn(
                     size: 80,
