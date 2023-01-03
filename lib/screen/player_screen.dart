@@ -55,7 +55,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                   NeumorphismBtn(
                     size: 60,
-                    child: Icon(
+                    child: const Icon(
                       Icons.menu,
                       color: AppColor.secondaryTextColor,
                     ),
@@ -148,12 +148,12 @@ class _PlayerScreenState extends State<PlayerScreen> {
                     onPressed: (() {
                       if (_currentItemPlaying > 0) {
                         setState(() {
-                          _currentItemPlaying--;
+                          _currentItemPlaying++;
                         });
                       }
                     }),
                     size: 80,
-                    child: Icon(
+                    child: const Icon(
                       Icons.skip_previous_rounded,
                       color: AppColor.secondaryTextColor,
                       size: 35,
@@ -177,7 +177,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       }
                     }),
                     size: 80,
-                    child: Icon(
+                    child: const Icon(
                       Icons.skip_next_rounded,
                       color: AppColor.secondaryTextColor,
                       size: 35,

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:music_player_neumorph/constants/app_color.dart';
 
 import '../model/music_model.dart';
@@ -20,9 +18,9 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
   @override
   void initState() {
     selectedIndex = widget.selectedIndex;
-    WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
-      calculateScrollPosition(scrollController);
-    });
+    // WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
+    //   calculateScrollPosition(scrollController);
+    // });
     super.initState();
   }
 
@@ -30,7 +28,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
     int totalLength = musicList.length;
     final macScroll = scrollController.position.maxScrollExtent;
     scrollController.animateTo(macScroll / totalLength * selectedIndex,
-        duration: Duration(milliseconds: 10), curve: Curves.easeIn);
+        duration: const Duration(milliseconds: 10), curve: Curves.easeIn);
   }
 
   @override
@@ -50,7 +48,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
                 fontWeight: FontWeight.bold,
               )),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             height: size.height * 0.45,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,7 +58,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
                     Navigator.pop(context, selectedIndex);
                   },
                   size: 60,
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back_rounded,
                     color: AppColor.secondaryTextColor,
                   ),
@@ -95,10 +93,10 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
                         });
                       },
                       child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
                         decoration: selectedIndex == index
                             ? BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
@@ -126,7 +124,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
                             ),
                             const Spacer(),
                             selectedIndex == index
-                                ? NeumorphismBtn(
+                                ? const NeumorphismBtn(
                                     size: 50,
                                     colors: [
                                       AppColor.blueTopDark,
@@ -136,7 +134,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
                                         color: AppColor.white,
                                         Icons.pause_rounded),
                                   )
-                                : NeumorphismBtn(
+                                : const NeumorphismBtn(
                                     size: 50,
                                     child: Icon(
                                         color: AppColor.secondaryTextColor,
