@@ -18,3 +18,5 @@ samples, guidance on mobile development, and a full API reference.
 ## Demo
 
 ![Alt Text](docs/images/nuem-music-app.gif)
+
+This project is a part of a tutorial
