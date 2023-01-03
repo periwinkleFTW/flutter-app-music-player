@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_neumorph/constants/app_color.dart';
 import 'package:music_player_neumorph/model/music_model.dart';
+import 'package:music_player_neumorph/screen/player_listScreen.dart';
 
 import '../widget/neumorphism_button.dart';
 
@@ -52,12 +53,19 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const NeumorphismBtn(
+                  NeumorphismBtn(
                     size: 60,
                     child: Icon(
                       Icons.menu,
                       color: AppColor.secondaryTextColor,
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PlayerListScreen(),
+                          ));
+                    },
                   ),
                 ],
               ),
