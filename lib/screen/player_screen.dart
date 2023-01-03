@@ -144,7 +144,14 @@ class _PlayerScreenState extends State<PlayerScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const NeumorphismBtn(
+                  NeumorphismBtn(
+                    onPressed: (() {
+                      if (_currentItemPlaying > 0) {
+                        setState(() {
+                          _currentItemPlaying--;
+                        });
+                      }
+                    }),
                     size: 80,
                     child: Icon(
                       Icons.skip_previous_rounded,
@@ -161,7 +168,14 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       size: 35,
                     ),
                   ),
-                  const NeumorphismBtn(
+                  NeumorphismBtn(
+                    onPressed: (() {
+                      if (_currentItemPlaying < musicList.length - 1) {
+                        setState(() {
+                          _currentItemPlaying++;
+                        });
+                      }
+                    }),
                     size: 80,
                     child: Icon(
                       Icons.skip_next_rounded,

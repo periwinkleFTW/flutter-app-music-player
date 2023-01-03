@@ -16,10 +16,21 @@ class PlayerListScreen extends StatefulWidget {
 
 class _PlayerListScreenState extends State<PlayerListScreen> {
   late int selectedIndex;
+  ScrollController scrollController = ScrollController();
   @override
   void initState() {
     selectedIndex = widget.selectedIndex;
+    WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
+      calculateScrollPosition(scrollController);
+    });
     super.initState();
+  }
+
+  calculateScrollPosition(ScrollController scrollController) {
+    int totalLength = musicList.length;
+    final macScroll = scrollController.position.maxScrollExtent;
+    scrollController.animateTo(macScroll / totalLength * selectedIndex,
+        duration: Duration(milliseconds: 10), curve: Curves.easeIn);
   }
 
   @override
@@ -74,6 +85,7 @@ class _PlayerListScreenState extends State<PlayerListScreen> {
           ),
           Expanded(
               child: ListView.builder(
+                  controller: scrollController,
                   itemCount: musicList.length,
                   itemBuilder: ((context, index) {
                     return InkWell(
