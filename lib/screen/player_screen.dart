@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_neumorph/constants/app_color.dart';
 import 'package:music_player_neumorph/model/music_model.dart';
-import 'package:music_player_neumorph/screen/player_listScreen.dart';
+import 'package:music_player_neumorph/screen/player_list_screen.dart';
 
 import '../widget/neumorphism_button.dart';
 
