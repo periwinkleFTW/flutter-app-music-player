@@ -59,14 +59,17 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       Icons.menu,
                       color: AppColor.secondaryTextColor,
                     ),
-                    onPressed: () {
-                      Navigator.push(
+                    onPressed: () async {
+                      int selectedIndex = await Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => PlayerListScreen(
                               selectedIndex: _currentItemPlaying,
                             ),
                           ));
+                      setState(() {
+                        _currentItemPlaying = selectedIndex;
+                      });
                     },
                   ),
                 ],
