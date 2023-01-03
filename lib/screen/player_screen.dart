@@ -141,6 +141,15 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                   const NeumorphismBtn(
                     size: 80,
+                    colors: [AppColor.blueTopDark, AppColor.blue],
+                    child: Icon(
+                      Icons.pause_rounded,
+                      color: AppColor.white,
+                      size: 35,
+                    ),
+                  ),
+                  const NeumorphismBtn(
+                    size: 80,
                     child: Icon(
                       Icons.skip_next_rounded,
                       color: AppColor.secondaryTextColor,
